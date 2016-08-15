@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment3</title>
+</head>
+<body>
+
+<p id="para1"></p>
+<p id="para2"></p>
+<p id="para3"></p>
+</body>
+<script>
+	
+	function findMaxSeq(array){
+	
+	var n= array;	
+	var n1 = new Array();
+	var n2= new Array();
+	var temp= new Array();
+	var temp1 = new Array();
+	var count=0;
+	var maxSeq= new Array();
+	var x;
+	var p;
+	 	
+	 	for(i=0;i<(n.length);i++)
+	
+		{
+	 	
+	 		for(j=i,y=0;j<(n.length);j++)
+		 		{
+		 		if (n[j]<n[j+1])
+		 		
+		 			{
+		 				n1[y]=n[j];
+		 				y++;
+		 				
+		 			}
+		 		else
+		 			{
+		 				
+		 				n1[y]=n[j];
+							
+		 				n2[count]=n1;
+		 				
+		 				temp[count] = n2[count].length;
+		 				
+		 				count++; 
+		 				n1=[];
+		 				break;
+		 			}	
+						
+				 }		
+		 		
+	 	} 	
+
+
+p=  Math.max(...temp);
+
+for(x=0;x<=(temp.length);x++)
+{
+	if (temp[x]== p)
+		{
+			
+			if(n2[x].length<=1)
+				{
+					return "no";
+					break;
+				}
+			else 
+				{
+					return n2[x];
+					break;
+				}
+		}
+}
+}
+
+document.getElementById("para1").innerHTML = "The Max Sequence of  [3,2,3,4,2,2,4] is : ===>" + findMaxSeq([3,2,3,4,2,2,4]);
+document.getElementById("para2").innerHTML = "The Max Sequence of  [3,5,4,6,1,2,3,6,10,32] is :===>" + findMaxSeq([3,5,4,6,1,2,3,6,10,32]);
+document.getElementById("para3").innerHTML = "The Max Sequence of  [3,2,1] is :===> " + findMaxSeq([3,2,1]);
+
+</script>
+
+</html>
